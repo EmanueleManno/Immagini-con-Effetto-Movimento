@@ -1,0 +1,75 @@
+/*Stile applicato a tutti gli elementi*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*Stile del corpo della pagina*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+    gap: 300px;
+}
+
+/*Stile del Box immagine*/
+.imgBx {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+/*Stile dell'immagine contenuta nel Box immagine*/
+.imgBx img {
+    position: absolute;
+    z-index: 2;
+    width: 250px;
+    height: 350px;
+}
+
+/*Stile delle immagini tranne la prima*/
+.imgBx img:not(:first-child) {
+    animation: animate 4s linear infinite;
+    animation-delay: calc(-0.8s * var(--i));
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Animazione*/
+@keyframes animate {
+    0% {
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+    }
+    100% {
+        top: 150px;
+        left: -250px;
+        opacity: 0;
+    }
+}
+
+/*Secondo gruppo di immagini tranne la prima (secondo personaggio)*/
+.imgBx:nth-child(2) img:not(:first-child) {
+    animation: animate-two 4s linear infinite;
+    animation-delay: calc(-0.8s * var(--i));
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/*Animazione Due*/
+@keyframes animate-two {
+    0% {
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+    }
+    100% {
+        top: 150px;
+        left: 250px;
+        opacity: 0;
+    }
+}
